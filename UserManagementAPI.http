@@ -1,0 +1,47 @@
+@host = http://localhost:5014
+
+### Invalid Token
+GET {{host}}/api/users
+Authorization: WrongToken
+
+### Missing Token
+GET {{host}}/api/users
+
+### Get all users
+GET {{host}}/api/users
+Authorization: TechHiveToken123
+Accept: application/json
+
+### Get user by ID
+GET {{host}}/api/users/1
+Authorization: TechHiveToken123
+Accept: application/json
+
+### Create user
+POST {{host}}/api/users
+Authorization: TechHiveToken123
+Content-Type: application/json
+
+{
+  "firstName": "Michael",
+  "lastName": "Brown",
+  "email": "michael.brown@techhive.com",
+  "department": "Finance"
+}
+
+### Update user
+PUT {{host}}/api/users/1
+Authorization: TechHiveToken123
+Content-Type: application/json
+
+{
+  "id": 1,
+  "firstName": "John",
+  "lastName": "Smith",
+  "email": "john.updated@techhive.com",
+  "department": "IT"
+}
+
+### Delete user
+DELETE {{host}}/api/users/1
+Authorization: TechHiveToken123
